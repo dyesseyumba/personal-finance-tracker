@@ -18,5 +18,11 @@ namespace FinanceTrackerAPI.Models
 
         public int UserId { get; set; }
         public required User User { get; set; }
+
+        public int AccountId { get; set; }
+        public required Account Account { get; set; }
+
+        public int TransactionTypeId { get; set; }
+        public required TransactionType TransactionType { get; set; }
     }
 }
