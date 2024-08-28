@@ -6,15 +6,9 @@ namespace FinanceTrackerAPI.Models
     {
         [Key]
         public int Id { get; set; }
-
+        public string Name { get; set; }
         [Required]
-        public int Month { get; set; }
-
-        [Required]
-        public int Year { get; set; }
-
-        [Required]
-        public decimal TotalBudget { get; set; }
+        public decimal Amount { get; set; }
 
         public int UserId { get; set; }
         public required User User { get; set; }
