@@ -1,20 +1,12 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
 namespace FinanceTrackerAPI.Models
 {
-    public class User
+    public class User : IdentityUser
     {
-        [Key]
-        public int Id { get; set; }
-
-        [Required]
-        public required string Email { get; set; }
-
-        [Required]
-        public required string Username { get; set; }
-
-        [Required]
-        public required string PasswordHash { get; set; }
+        public string RefreshToken { get; set; }
+        public DateTime RefreshTokenExpiryTime { get; set; }
 
         public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
 
