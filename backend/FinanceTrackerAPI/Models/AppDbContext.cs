@@ -12,13 +12,7 @@ namespace FinanceTrackerAPI.Models
         public DbSet<User> Users { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<TransactionType> TransactionTypes { get; set; }
-        
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
 
-            // Add any custom configurations or relationships here
-        }
     }
 
 }
