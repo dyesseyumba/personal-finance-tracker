@@ -16,7 +16,7 @@ namespace FinanceTrackerAPI.Models
         [Required]
         public DateTime Date { get; set; }
 
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public required User User { get; set; }
 
         public int AccountId { get; set; }
