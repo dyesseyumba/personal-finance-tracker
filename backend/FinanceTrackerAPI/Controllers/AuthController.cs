@@ -97,8 +97,9 @@ namespace FinanceTrackerAPI.Controllers
                 return BadRequest("Invalid access token or refresh token");
             }
 
-            var username = principal.Identity.Name;
-            var user = await _userManager.FindByNameAsync(username);
+            var usernameClaim = principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+            var user = await _userManager.FindByNameAsync(usernameClaim);
 
             if (user == null || user.RefreshToken != tokenModel.RefreshToken || user.RefreshTokenExpiryTime <= DateTime.Now)
             {
@@ -183,8 +184,15 @@ namespace FinanceTrackerAPI.Controllers
             SecurityToken securityToken;
             var principal = tokenHandler.ValidateToken(token, tokenValidationParameters, out securityToken);
             var jwtSecurityToken = securityToken as JwtSecurityToken;
+            var jtwSub = ClaimTypes.NameIdentifier;
+            var usernameClaim = principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 
             if (jwtSecurityToken == null || !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
+            {
+                throw new SecurityTokenException("Invalid token");
+            }
+
+            if (string.IsNullOrEmpty(usernameClaim))
             {
                 throw new SecurityTokenException("Invalid token");
             }
