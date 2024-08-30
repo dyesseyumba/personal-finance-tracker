@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FinanceTrackerAPI.Models
 {
-    public class Account
+    public class Account : BaseEntity
     {
         [Key]
         public int Id { get; set; }
@@ -15,7 +15,7 @@ namespace FinanceTrackerAPI.Models
         public string Currency { get; set; } = "XAF";
 
         public int UserId { get; set; }
-        public User User { get; set; }
-        public ICollection<Transaction> Transactions { get; set; }
+        public User? User { get; set; }
+        public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
     }
 }
