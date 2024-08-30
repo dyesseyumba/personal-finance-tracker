@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FinanceTrackerAPI.Models
 {
-    public class Transaction : BaseEntity
+    public class Transaction : ModelBase
     {
         [Key]
         public int Id { get; set; }

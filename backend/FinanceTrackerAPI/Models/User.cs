@@ -7,7 +7,7 @@ namespace FinanceTrackerAPI.Models
     {
         public string? RefreshToken { get; set; }
         public DateTime? RefreshTokenExpiryTime { get; set; }
-                public DateTime? CreatedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
 
         public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();

@@ -40,7 +40,8 @@ namespace FinanceTrackerAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.Username, Email = model.Email };
+                var user = new User { UserName = model.Username, Email = model.Email,
+                CreatedAt = DateTime.UtcNow, UpdatedAt = DateTime.UtcNow };
                 var result = await _userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
@@ -66,6 +67,7 @@ namespace FinanceTrackerAPI.Controllers
 
             user.UserName = model.Username;
             user.Email = model.Email;
+            user.UpdatedAt = DateTime.UtcNow;
             // Password update is optional here; it can be handled separately
             if (!string.IsNullOrEmpty(model.Password))
             {
