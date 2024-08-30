@@ -120,7 +120,6 @@ namespace FinanceTrackerAPI.Controllers
 
         // POST: api/auth/revoke
         [HttpPost("revoke")]
-        [Authorize]
         public async Task<IActionResult> Revoke()
         {
             var username = User.Identity.Name;

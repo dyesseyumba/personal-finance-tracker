@@ -20,6 +20,7 @@ namespace FinanceTrackerAPI.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetUsers()
         {
             var users = await _userManager.Users.ToListAsync();
@@ -35,7 +36,7 @@ namespace FinanceTrackerAPI.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous] // Allow anyone to register
+        [AllowAnonymous]
         public async Task<IActionResult> CreateUser([FromBody] RegisterUserModel model)
         {
             if (ModelState.IsValid)
@@ -91,6 +92,7 @@ namespace FinanceTrackerAPI.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteUser(string id)
         {
             var user = await _userManager.FindByIdAsync(id);

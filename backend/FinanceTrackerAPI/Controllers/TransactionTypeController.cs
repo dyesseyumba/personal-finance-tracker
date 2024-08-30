@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace FinanceTrackerAPI.Controllers
 {
     [ApiController]
-    [Authorize(Roles = "Admin")]
+    [Authorize]
     [Route("api/[controller]")]
     public class TransactionTypeController : ControllerBase
     {
@@ -35,6 +35,7 @@ namespace FinanceTrackerAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateTransactionType([FromBody] TransactionType transactionType)
         {
             _context.TransactionTypes.Add(transactionType);
@@ -43,6 +44,7 @@ namespace FinanceTrackerAPI.Controllers
         }
 
         [HttpPut("{id:int}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateTransactionType(int id, [FromBody] TransactionType updatedTransactionType)
         {
             var transactionType = await _context.TransactionTypes.FindAsync(id);
