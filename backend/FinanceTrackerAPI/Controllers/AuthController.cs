@@ -61,6 +61,26 @@ namespace FinanceTrackerAPI.Controllers
             return BadRequest("Invalid model state");
         }
 
+        [HttpPost("assign")]
+        [AllowAnonymous]
+        public async Task<IActionResult> AssignUser([FromBody] AssigneModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByNameAsync(model.Username);
+
+                if (user != null)
+                {
+                    await _userManager.AddToRoleAsync(user, model.Role);
+                    return Ok(new { Message = "User registered successfully." });
+                }
+
+                return BadRequest($"User {model.Username} not found");
+            }
+
+            return BadRequest("Invalid model state");
+        }
+
         // POST: api/auth/refresh
         [HttpPost("refresh")]
         [AllowAnonymous]
@@ -157,7 +177,7 @@ namespace FinanceTrackerAPI.Controllers
                 ValidateIssuer = false,
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"])),
-                ValidateLifetime = false 
+                ValidateLifetime = false
             };
 
             var tokenHandler = new JwtSecurityTokenHandler();

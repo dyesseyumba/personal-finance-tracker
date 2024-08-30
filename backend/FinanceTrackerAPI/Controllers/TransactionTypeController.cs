@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace FinanceTrackerAPI.Controllers
 {
     [ApiController]
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     public class TransactionTypeController : ControllerBase
     {

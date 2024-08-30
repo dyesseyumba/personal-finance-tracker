@@ -36,16 +36,22 @@ namespace FinanceTrackerAPI.Controllers
 
         [HttpPost]
         [AllowAnonymous] // Allow anyone to register
-        public async Task<IActionResult> CreateUser([FromBody] RegisterModel model)
+        public async Task<IActionResult> CreateUser([FromBody] RegisterUserModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.Username, Email = model.Email,
-                CreatedAt = DateTime.UtcNow, UpdatedAt = DateTime.UtcNow };
+                var user = new User
+                {
+                    UserName = model.Username,
+                    Email = model.Email,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow
+                };
                 var result = await _userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
                 {
+                    await _userManager.AddToRoleAsync(user, "User");
                     return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
                 }
 

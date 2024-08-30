@@ -50,6 +50,12 @@ services.AddAuthentication(options =>
     };
 });
 
+services.AddAuthorization(options =>
+    {
+        options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
+        options.AddPolicy("RequireUserRole", policy => policy.RequireRole("User"));
+    });
+
 services.AddApiVersioning(options =>
 {
     options.AssumeDefaultVersionWhenUnspecified = true;

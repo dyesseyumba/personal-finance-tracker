@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace FinanceTrackerAPI.Controllers
 {
     [ApiController]
-    [Authorize]
+    [Authorize(Roles = "User")]
     [Route("api/[controller]")]
     public class BudgetController : ControllerBase
     {

@@ -1,8 +1,9 @@
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace FinanceTrackerAPI.Models.Web
 {
-    public class RegisterModel
+    public class RegisterUserModel
     {
         [Required]
         public string Username { get; set; }
