@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "backend", "backend", "{5448DB39-B01F-4669-9C05-3135D72379B4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "backend", "backend", "{618939CA-F2B5-48BC-9E21-150F77330DEB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinanceTrackerAPI", "backend\FinanceTrackerAPI\FinanceTrackerAPI.csproj", "{36BFF5DE-210D-44C0-90FF-4EAD66E0344C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinanceTrackerAPI", "backend\FinanceTrackerAPI\FinanceTrackerAPI.csproj", "{93408618-B621-4C8E-84AD-CEBDF8E2F7A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,16 +13,16 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{36BFF5DE-210D-44C0-90FF-4EAD66E0344C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{36BFF5DE-210D-44C0-90FF-4EAD66E0344C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{36BFF5DE-210D-44C0-90FF-4EAD66E0344C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{36BFF5DE-210D-44C0-90FF-4EAD66E0344C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93408618-B621-4C8E-84AD-CEBDF8E2F7A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93408618-B621-4C8E-84AD-CEBDF8E2F7A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93408618-B621-4C8E-84AD-CEBDF8E2F7A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93408618-B621-4C8E-84AD-CEBDF8E2F7A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{36BFF5DE-210D-44C0-90FF-4EAD66E0344C} = {5448DB39-B01F-4669-9C05-3135D72379B4}
+		{93408618-B621-4C8E-84AD-CEBDF8E2F7A4} = {618939CA-F2B5-48BC-9E21-150F77330DEB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C521B46-B630-4976-ABF4-9AEE0C4CDE07}
