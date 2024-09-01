@@ -1,5 +1,6 @@
 import React from 'react';
 import { Layout, theme } from 'antd';
+import { Outlet } from 'react-router-dom';
 import { Sidebar, Header, Footer } from './components';
 
 const { Content } = Layout;
@@ -24,7 +25,8 @@ const App: React.FC = () => {
               borderRadius: borderRadiusLG,
             }}
           >
-            content
+            {/* content */}
+            <Outlet />
           </div>
         </Content>
         <Footer />
