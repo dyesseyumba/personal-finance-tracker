@@ -1,6 +1,7 @@
 import React from 'react';
 import { Avatar, Button, Dropdown, Layout } from 'antd';
 import { LogoutOutlined, UserOutlined } from '@ant-design/icons';
+import { Breadcrumbs } from '.';
 
 interface HeaderProps {
   colorBgContainer: string;
@@ -30,7 +31,9 @@ const Header: React.FC<HeaderProps> = ({ colorBgContainer }) => {
         background: colorBgContainer,
       }}
     >
-      <div />
+      <div>
+        <Breadcrumbs />
+      </div>
       <div>
         <Button type="primary" style={{ marginRight: '10px' }}>
           Login

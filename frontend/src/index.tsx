@@ -9,6 +9,7 @@ import Budgets from './pages/Budgets';
 import Transactions from './pages/Transactions';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
+import NotFound from './pages/NotFound';
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(
@@ -32,6 +33,7 @@ root.render(
             <Route path="transactions" element={<Transactions />} />
             <Route path="profile" element={<Profile />} />
             <Route path="settings" element={<Settings />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </Router>
