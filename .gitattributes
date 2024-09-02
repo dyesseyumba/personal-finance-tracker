@@ -1,0 +1,8 @@
+# Set default behavior to LF
+* text=auto eol=lf
+
+# Override for .NET files to use CRLF
+*.cs text eol=crlf
+*.csproj text eol=crlf
+*.sln text eol=crlf
+*.config text eol=crlf

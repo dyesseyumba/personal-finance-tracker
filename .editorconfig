@@ -12,3 +12,6 @@ trim_trailing_whitespace = true
 
 [*.cs]
 indent_size = 4
+
+[*.{cs,sln,csproj,vb,resx}]
+end_of_line = crlf
