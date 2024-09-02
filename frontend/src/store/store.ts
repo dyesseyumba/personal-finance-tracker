@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import accountReducer from './account/accountSlice';
+import authReducer from './auth/authSlice';
 
 const store = configureStore({
   reducer: {
+    auth: authReducer,
     accounts: accountReducer,
     // budget: budgetReducer,
     // transaction: transactionReducer,

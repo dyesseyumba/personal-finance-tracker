@@ -119,6 +119,28 @@ namespace FinanceTrackerAPI.Controllers
             });
         }
 
+        // POST: api/auth/logout
+        [HttpPost("logout")]
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            var username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var user = await _userManager.FindByNameAsync(username);
+
+            if (user == null)
+            {
+                return BadRequest("Invalid user");
+            }
+
+            user.RefreshToken = null;
+            user.RefreshTokenExpiryTime = null;
+
+            await _userManager.UpdateAsync(user);
+            await _signInManager.SignOutAsync();
+
+            return Ok(new { message = "Logged out successfully" });
+        }
+
         // POST: api/auth/revoke
         [HttpPost("revoke")]
         public async Task<IActionResult> Revoke()
