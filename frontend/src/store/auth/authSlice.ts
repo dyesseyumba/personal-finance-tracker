@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AuthState } from '.';
+import { AuthState, LoginCredentials, LoginToken } from '.';
 import { apiClient } from '../../utils';
 
 const initialState: AuthState = {
@@ -11,9 +11,9 @@ const initialState: AuthState = {
 };
 
 // Thunk for user login
-const loginUser = createAsyncThunk(
+const loginUser = createAsyncThunk<LoginToken, LoginCredentials>(
   'auth/login',
-  async (credentials: { username: string; password: string }, { rejectWithValue }) => {
+  async (credentials: LoginCredentials, { rejectWithValue }) => {
     try {
       const response = await apiClient.post('/auth/login', credentials);
       return response.data;
@@ -69,10 +69,11 @@ const authSlice = createSlice({
         state.status = 'loading';
         state.error = null;
       })
-      .addCase(loginUser.fulfilled, (state, action: PayloadAction<{ token: string; user: any }>) => {
-        state.token = action.payload.token;
-        state.user = action.payload.user;
+      .addCase(loginUser.fulfilled, (state, action: PayloadAction<LoginToken>) => {
+        state.token = action.payload.accessToken;
+        // state.user = action.payload.user;
         state.isAuthenticated = true;
+        document.cookie = `refreshToken=${action.payload.refreshToken}; path=/; secure;`;
         state.status = 'succeeded';
       })
       .addCase(loginUser.rejected, (state, action) => {

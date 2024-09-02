@@ -12,6 +12,7 @@ import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import NotFound from './pages/NotFound';
 import store from './store/store';
+import { Login } from './pages';
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(
@@ -35,6 +36,7 @@ root.render(
               <Route path="transactions" element={<Transactions />} />
               <Route path="profile" element={<Profile />} />
               <Route path="settings" element={<Settings />} />
+              <Route path="login" element={<Login />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>

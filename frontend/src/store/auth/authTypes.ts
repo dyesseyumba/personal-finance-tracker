@@ -1,14 +1,26 @@
 import { State } from '../types';
 
-export interface AuthState extends State {
+interface AuthState extends State {
   token: string | null;
   user: User | null;
   isAuthenticated: boolean;
   error: string | null;
 }
 
-export interface User {
+interface User {
   userName: number;
   email: string;
   role: number;
 }
+
+interface LoginToken {
+  accessToken: string;
+  refreshToken: string;
+}
+
+interface LoginCredentials {
+  username: string;
+  password: string;
+}
+
+export { AuthState, User, LoginCredentials, LoginToken };

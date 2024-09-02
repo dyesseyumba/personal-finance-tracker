@@ -2,6 +2,7 @@ import React from 'react';
 import { Avatar, Button, Dropdown, Layout } from 'antd';
 import { LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import { Breadcrumbs } from '.';
+import { Link } from 'react-router-dom';
 
 interface HeaderProps {
   colorBgContainer: string;
@@ -36,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({ colorBgContainer }) => {
       </div>
       <div>
         <Button type="primary" style={{ marginRight: '10px' }}>
-          Login
+          <Link to="/login">Login</Link>
         </Button>
         <Dropdown menu={{ items: dropItems }} placement="bottomRight">
           <Avatar icon={<UserOutlined />} />

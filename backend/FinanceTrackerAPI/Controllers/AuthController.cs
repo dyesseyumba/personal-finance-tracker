@@ -52,7 +52,7 @@ namespace FinanceTrackerAPI.Controllers
                     return Ok(new
                     {
                         accessToken,
-                        refreshToken
+                        refreshToken,
                     });
                 }
                 return Unauthorized();
