@@ -19,7 +19,8 @@ export default [
       // @typescript-eslint/indent
       // But in eslint.config.js (flat config), the name chosen above in `plugins` is used.
       // "ts/indent": "error", // 🚨 Don’t do this!
-      "prettier/prettier": "warn"
+      'prettier/prettier': 'warn',
+      '@typescript-eslint/no-explicit-any': 'warn',
     },
   },
 ];
