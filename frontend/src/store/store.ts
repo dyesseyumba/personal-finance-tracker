@@ -1,8 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { accountReducer } from './slices/accountSlice';
+import accountReducer from './account/accountSlice';
+
 const store = configureStore({
   reducer: {
-    account: accountReducer,
+    accounts: accountReducer,
+    // budget: budgetReducer,
+    // transaction: transactionReducer,
+    // transactionType: transactionTypeReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(),
 });

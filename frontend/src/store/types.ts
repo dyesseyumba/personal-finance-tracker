@@ -1,15 +1,6 @@
-export interface State<StateType> {
-  items: StateType[];
-  loading: boolean;
+export interface State {
+  status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
-}
-
-export interface Account {
-  id: number;
-  name: string;
-  balance: number;
-  currency: string;
-  userId: string;
 }
 
 export interface Transaction {
@@ -32,4 +23,3 @@ export interface Budget {
   name: string;
   amount: number;
 }
-
